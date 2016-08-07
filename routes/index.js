@@ -9,13 +9,18 @@ router.post('/create-user', function(req, res, next) {
     password: req.body.password
   });
 
-  newUser.save(function(err) {
-    if(err) {throw err;}
-  });
-
-  res.json({
-    message: 'user saved successfully'
-  });
+  newUser
+    .save()
+    .then(function(doc) {
+      res.json({
+        result: doc
+      });
+    })
+    .catch(function(err) {
+      res.json({
+        result: err
+      });
+    });
 });
 
 module.exports = router;

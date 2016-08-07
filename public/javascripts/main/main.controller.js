@@ -18,8 +18,7 @@
       };
 
       MainService.createUser(submission).then(function(data){
-        console.log(data);
-        vm.result = data.message;
+        vm.result = data.result.username;
       });
     };
   }
