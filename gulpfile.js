@@ -17,21 +17,25 @@ var paths = {
   ],
   style: 'public/stylesheets/**/*.scss', //get scss to compile to css
   lint: [
+    '*.js',
+    'routes/*.js',
     'public/javascripts/*.js',
     'public/javascripts/**/*.js',
     'public/javascripts/**/*.spec.js', //lint the protractor tests
     'public/javascripts/*.spec.js', //lint the protractor tests
-    '!public/javascripts/dist/*.js' //ignore previous dist file
+    '!public/javascripts/dist/*.js', //ignore previous dist file
   ],
   test: '../public/javascripts/**/*.spec.js',
   watch: [
+    '*.js',
+    'routes/*.js',
     'public/*.html',
     'public/javascripts/*.{js,html}',
     'public/javascripts/**/*.{js,html}',
     'public/stylesheets/sass/**/*.scss',
     '!public/javascripts/dist/*.js'
   ]
-}
+};
 
 //compiles scss
 //runs lint on js & test files
@@ -58,7 +62,7 @@ gulp.task('lint', function() {
   return gulp
     .src(paths.lint)
     .pipe(jshint())
-    .pipe(jshint.reporter(stylish)) //better styling for linter warnings
+    .pipe(jshint.reporter(stylish)); //better styling for linter warnings
 });
 
 //runs protractor test
@@ -70,7 +74,7 @@ gulp.task('test', ['scripts'], function(callback) {
       'autoStartStopServer': true,
       'debug': false,
     }))
-    .on('error', function(e) {throw e;})
+    .on('error', function(e) {throw e;});
 });
 
 gulp.task('default', function() {

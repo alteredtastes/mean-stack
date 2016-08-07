@@ -4,3 +4,15 @@
 <p class="second">
   {{main.text}}
 </p>
+<p>
+  {{main.result}}
+</p>
+<form class="" ng-submit="main.createUser()">
+  <label for="name">Name</label><br/>
+  <input type="text" ng-model="main.name" id="name" value=""><br/>
+  <label for="username">Username</label><br/>
+  <input type="text" ng-model="main.username" id= "username" value=""><br/>
+  <label for="password">Password</label><br/>
+  <input type="password" ng-model="main.password" id="password" value=""><br/>
+  <input type="submit" value="Submit">
+</form>

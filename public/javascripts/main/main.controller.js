@@ -5,8 +5,22 @@
     .module('mean-stack')
     .controller('MainController', MainController);
 
-  function MainController() {
+  /* @ngInject */
+  function MainController(MainService) {
     var vm = this;
     vm.text = 'this is some text from the main controller';
+
+    vm.createUser = function() {
+      var submission = {
+        name: vm.name,
+        username: vm.username,
+        password: vm.password
+      };
+
+      MainService.createUser(submission).then(function(data){
+        console.log(data);
+        vm.result = data.message;
+      });
+    };
   }
 })();
