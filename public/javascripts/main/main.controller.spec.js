@@ -15,16 +15,12 @@ describe('Main page', function() {
   });
 
   it('should have a title', function() {
-    expect(title).
-      toEqual('MEAN App');
+    expect(title).toEqual('MEAN App');
   });
 
   it('should return the submitted username', function() {
     username.sendKeys('test');
-
     submit.click();
-
-    result.getText().
-      toEqual('test');
+    result.getText().toEqual('test');
   });
 });
